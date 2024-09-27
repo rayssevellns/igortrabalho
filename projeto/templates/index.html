@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do list</title>
+    <title>Lista de Filmes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Lista de Filmes</h1>
-    <form action="/add" method="post">
-        <input type="text" name="descricao" placeholder="Novo Filme">
-            <button type="submit">Add</button>
-    </form>
+    <h1>Filmes</h1>
     <ul>
-        {% for filme in listaFilmes %}
-            <li>{{filme.descricao}}-{% if filme.completo %}Completa{% else %}Pendente{% endif %}</li>
+        {% for filme in filmes %}
+            <li>{{ filme.descricao }}</li>
         {% endfor %}
     </ul>
+
+    <h2>Adicionar Filme</h2>
+    <form method="POST" action="/add">
+        <input type="text" name="descricao" required>
+        <button type="submit">Adicionar</button>
+    </form>
 </body>
 </html>
