@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Filmes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Filmes</h1>
-    <ul>
-        {% for filme in filmes %}
-            <li>{{ filme.descricao }}</li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>Lista de Filmes</h1>
+        <button onclick="location.href='/login'" class="login-button">Login</button>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Filmes</h2>
+            <ul>
+                {% for filme in filmes %}
+                    <li>{{ filme.descricao }}</li>
+                {% endfor %}
+            </ul>
+        </section>
 
-    <h2>Adicionar Filme</h2>
-    <form method="POST" action="/add">
-        <input type="text" name="descricao" required>
-        <button type="submit">Adicionar</button>
-    </form>
+        <section>
+            <h2>Adicionar Filme</h2>
+            <form method="POST" action="/add">
+                <input type="text" name="descricao" required placeholder="Descrição do Filme">
+                <button type="submit">Adicionar</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

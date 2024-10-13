@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3; url={{ url_for('filme.index') }}"> <!-- Redireciona após 3 segundos -->
+    <title>Bem-vindo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo, {{ username }}!</h1>
+    </header>
+    <main>
+        <p>Você será redirecionado para a página dos filmes em 3 segundos...</p>
+    </main>
+
+</body>
+</html>
