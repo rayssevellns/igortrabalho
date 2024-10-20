@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from models import Filme, addFilme, getFilmes, autenticar
+from model import Filme, addFilme, getFilmes, autenticar
 
 filme_controllers = Blueprint("filme", __name__)
 
