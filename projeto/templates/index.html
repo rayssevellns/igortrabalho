@@ -28,6 +28,13 @@
                 <button type="submit">Adicionar</button>
             </form>
         </section>
+
+        {% if visited %}
+        <section>
+            <h2>Bem-vindo de volta!</h2>
+            <p>Você já visitou nosso site anteriormente.</p>
+        </section>
+        {% endif %}
     </main>
 </body>
 </html>
