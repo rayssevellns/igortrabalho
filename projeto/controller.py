@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from model import Filme, addFilme, getFilmes, autenticar
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash, json
+from models import Filme, addFilme, getFilmes, autenticar
 
 filme_controllers = Blueprint("filme", __name__)
 
@@ -54,3 +54,19 @@ def logout():
     session.pop('username', None)
     flash('Você foi desconectado.', 'info')
     return redirect(url_for('filme.login'))
+    
+@filme_controllers.errorhandler(404)
+def pageNotFound(e):
+    return render_template("404.html"), 404
+
+@filme_controllers.errorhandler(403)
+def pageNotFound(e):
+    return render_template("403.html"), 403
+
+@filme_controllers.errorhandler(401)
+def pageNotFound(e):
+    return render_template("401.html"), 401
+
+@filme_controllers.errorhandler(500)
+def pageNotFound(e):
+    return render_template("500.html"), 500
