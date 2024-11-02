@@ -45,7 +45,23 @@ ul {
     max-width: 600px;
     margin: 0 auto; /* Centraliza a lista na página */
 }
+/* Estilos para o botão de logout */
+button.logout {
+    background-color: #ff5252; /* Cor de fundo vermelha para chamar atenção */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: auto; /* Largura automática */
+    font-size: 1em; /* Tamanho de fonte maior */
+    transition: background 0.3s, transform 0.2s;
+}
 
+button.logout:hover {
+    background-color: #d32f2f; /* Cor ao passar o mouse */
+    transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+}
 li {
     background: #03dac5;
     margin: 10px 0;
@@ -139,4 +155,24 @@ footer {
     text-align: center;
     color: #777;
     font-size: 0.9em;
+}
+.button-container {
+    text-align: center; /* Centraliza o conteúdo do contêiner */
+    margin: 20px 0; /* Adiciona espaço acima e abaixo do botão */
+}
+
+.btn-alugar {
+    display: flex;
+    background-color: #3700b3;; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Espaçamento interno (topo/baixo, esquerda/direita) */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 5px; /* Cantos arredondados */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.btn-alugar:hover {
+    background-color: #5400b3; /* Cor do botão ao passar o mouse */
 }
