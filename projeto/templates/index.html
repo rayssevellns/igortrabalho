@@ -10,7 +10,7 @@
         <h1>Lista de Filmes</h1>
         <button onclick="location.href='/login'" class="login-button">Login</button>
     </header>
-    
+
     <main>
         <section>
             <h2>Filmes</h2>
@@ -28,11 +28,11 @@
                 <button type="submit">Adicionar</button>
             </form>
         </section>
-
+        <h2>Filmes para alugar</h2>
+        <button onclick="location.href='/home'" class="btn-alugar">Filmes para Alugar</button>
         {% if visited %}
         <section>
             <h2>Bem-vindo de volta!</h2>
-            <p>Você já visitou nosso site anteriormente.</p>
         </section>
         {% endif %}
     </main>
