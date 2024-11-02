@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash, json,make_response
-from models import Filme, addFilme, getFilmes, autenticar, listFilmesAlugar
+from model import Filme, addFilme, getFilmes, autenticar, listFilmesAlugar
 
 
 filme_controllers = Blueprint("filme", __name__)
@@ -18,6 +18,7 @@ def index():
     filmes = getFilmes()
     username = session.get('username')
     visited = request.cookies.get('visited')
+    cookie = json.loads(request.cookies.get('carrinho', '[]'))
     return render_template('index.html', filmes=filmes, username=username, visited=visited)
 
 @filme_controllers.route("/home")
@@ -25,7 +26,6 @@ def homePage():
     id = request.args.get('id', default=0, type=int)
     cookie = json.loads(request.cookies.get('carrinho', '[]'))
 
-    # Atualizando o carrinho de acordo com o id
     if id != 0:
         if id in cookie:
             cookie.remove(id)
@@ -33,11 +33,11 @@ def homePage():
             cookie.append(id)
 
     # Renderizando com lista de filmes e carrinho
-    resp = make_response(render_template("index.html", listaFilmesAlugar=listFilmesAlugar, carrinho=cookie))
+    resp = make_response(render_template("homepage.html", 
+                                         listaFilmesAlugar=listFilmesAlugar, 
+                                         carrinho=cookie))
     resp.set_cookie('carrinho', json.dumps(cookie), max_age=60*60*24)
     return resp
-
-
 
 @filme_controllers.route("/add", methods=["POST"])
 def add():
@@ -90,3 +90,4 @@ def unauthorized(e):
 @filme_controllers.errorhandler(500)
 def serverError(e):
     return render_template("500.html"), 500
+
