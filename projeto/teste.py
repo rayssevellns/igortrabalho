@@ -1,5 +1,5 @@
 from flask import Flask
-from controllers import filme_controllers
+from controller import filme_controllers
 
 app = Flask(__name__)
 
